@@ -9,6 +9,9 @@
 [Bb]uilds/
 [Ll]ogs/
 [Mm]emoryCaptures/
+Packages/
+.idea/
+Assets/Plugins/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -60,6 +63,6 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+*.dll
 
 
-2670 Scripting/Packages/
