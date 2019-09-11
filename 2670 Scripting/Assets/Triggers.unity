@@ -173,7 +173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854883977
 GameObject:
@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 876979972}
   - component: {fileID: 876979971}
   - component: {fileID: 876979970}
+  - component: {fileID: 876979973}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -299,23 +300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fa7860d123d444ead5b3cded27d31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpdateImageEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 876979970}
-        m_MethodName: UpdateImageComponent
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 5ed437216385d7d4eac785de214b69e3,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: FloatData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &876979971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +334,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 876979968}
   m_CullTransparentMesh: 0
---- !u!1001 &1318162296
+--- !u!114 &876979973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876979968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2943c9e843bea46aaf695deeb4dd3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionObj: {fileID: 11400000, guid: 902825182bb1c754ab1b83b13f5b65e5, type: 2}
+  handlerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 876979970}
+        m_MethodName: UpdateImageComponent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5ed437216385d7d4eac785de214b69e3,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: FloatData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!1001 &1600849187
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -367,7 +380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4282593111725830, guid: 80d3e7396667cae4c8bb5131038e460c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.36
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 4282593111725830, guid: 80d3e7396667cae4c8bb5131038e460c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -387,12 +400,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4282593111725830, guid: 80d3e7396667cae4c8bb5131038e460c, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114828056766835848, guid: 80d3e7396667cae4c8bb5131038e460c,
-        type: 2}
-      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateValueLimitZeroAndMaxValue
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80d3e7396667cae4c8bb5131038e460c, type: 2}
@@ -404,6 +412,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114399293942160302, guid: 396ab31412058c04c8f159be1fdb4ae5,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4999341497347240, guid: 396ab31412058c04c8f159be1fdb4ae5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -434,12 +447,38 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4999341497347240, guid: 396ab31412058c04c8f159be1fdb4ae5, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114399293942160302, guid: 396ab31412058c04c8f159be1fdb4ae5,
         type: 2}
       propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdateValueLimitZeroAndMaxValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399293942160302, guid: 396ab31412058c04c8f159be1fdb4ae5,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399293942160302, guid: 396ab31412058c04c8f159be1fdb4ae5,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399293942160302, guid: 396ab31412058c04c8f159be1fdb4ae5,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 902825182bb1c754ab1b83b13f5b65e5,
+        type: 2}
+    - target: {fileID: 114399293942160302, guid: 396ab31412058c04c8f159be1fdb4ae5,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399293942160302, guid: 396ab31412058c04c8f159be1fdb4ae5,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 396ab31412058c04c8f159be1fdb4ae5, type: 2}
@@ -531,7 +570,7 @@ RectTransform:
   m_Children:
   - {fileID: 876979969}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
