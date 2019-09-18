@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class ActionCalls : MonoBehaviour
@@ -9,8 +7,6 @@ public class ActionCalls : MonoBehaviour
 	private Vector3 location, rotations, scales;
 	private UnityAction transformAction;
 
-	private List<UnityAction> transActions;
-	
 	private void Start()
 	{
 		transformAction = OnMove;
@@ -22,12 +18,12 @@ public class ActionCalls : MonoBehaviour
 			transformAction = OnRotate;
 		}
 		
-		if (transformAction == OnRotate)
+		else if (transformAction == OnRotate)
 		{
 			transformAction = OnScale;
 		} 
 		
-		if (transformAction == OnScale)
+		else if (transformAction == OnScale)
 		{
 			transformAction = OnMove;
 		}
