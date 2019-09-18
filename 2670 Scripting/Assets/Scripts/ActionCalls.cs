@@ -1,48 +1,44 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class ActionCalls : MonoBehaviour
 {
 	public float speed = 1f, rotateSpeed = 10f, scaleSpeed = 0.02f;
 	private Vector3 location, rotations, scales;
-	private UnityAction transformAction;
-
-	private void Start()
+	private List<UnityAction> actions;
+	private int i;
+	
+	private void Awake()
 	{
-		transformAction = OnMove;
+		actions = new List<UnityAction> {OnMove, OnRotate, OnScale};
 	}
 	private void OnMouseDown()
 	{
-		if (transformAction == OnMove)
-		{
-			transformAction = OnRotate;
-		}
-		
-		else if (transformAction == OnRotate)
-		{
-			transformAction = OnScale;
-		} 
-		
-		else if (transformAction == OnScale)
-		{
-			transformAction = OnMove;
-		}
+		if (i == actions.Count-1)
+			i = 0;
+		else
+			i++;
 	}
-	void Update ()
+
+	private void Update ()
 	{
-		transformAction();
+		actions[i]();
 	}
-	public void OnMove()
+
+	private void OnMove()
 	{
 		location.x = speed * Time.deltaTime;
 		transform.Translate(location);
 	}
-	public void OnRotate()
+
+	private void OnRotate()
 	{
 		rotations.y = rotateSpeed * Time.deltaTime;
 		transform.Rotate(rotations);
 	}
-	public void OnScale()
+
+	private void OnScale()
 	{
 		scales.Set(scaleSpeed,scaleSpeed,scaleSpeed);
 		transform.localScale += scales;

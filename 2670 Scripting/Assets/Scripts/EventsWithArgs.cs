@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
+
+[System.Serializable]
+public class FloatEvent : UnityEvent<float>
+{
+	
+}
 
 public class EventsWithArgs : MonoBehaviour
 {
-	public UnityEvent<float> eventWithFloat;
+	public FloatEvent eventWithFloat;
 
 	private void Start()
 	{
-		eventWithFloat.AddListener(delegate{PassFloat(10);});
+		eventWithFloat = new FloatEvent();
+		eventWithFloat.AddListener(PassFloat);
 	}
-
-	// Use this for initialization
+	
 	void Update () {
-		eventWithFloat.Invoke(10);
+		eventWithFloat.Invoke(10f);
 	}
 
 	private void OnMouseDown()
@@ -23,8 +26,8 @@ public class EventsWithArgs : MonoBehaviour
 		eventWithFloat.RemoveListener(PassFloat);
 	}
 
-	public void PassFloat(float number)
+	private void PassFloat(float arg0)
 	{
-		print(number);
+		print(arg0);
 	}
 }
